@@ -1,0 +1,70 @@
+body {
+    padding-top: 50px;
+}
+
+.full-width {
+    width:100%;
+    border: 0px;
+}
+
+.tags {
+    width: 20%;
+}
+
+.nickname {
+    padding: 15px;
+    color: #51a351;
+    font-family:Ubuntu;
+    font-size:12pt;
+}
+
+@-webkit-keyframes pulsate {
+    50% { color: #fff; text-shadow: 0 -1px rgba(0,0,0,.3), 0 0 5px #ffd, 0 0 8px #fff; }
+}
+@keyframes pulsate {
+    50% { color: #fff; text-shadow: 0 -1px rgba(0,0,0,.3), 0 0 5px #ffd, 0 0 8px #fff; }
+}
+#blink7 {
+    color: rgb(245,245,245);
+    text-shadow: 0 -1px rgba(0,0,0,.1);
+    -webkit-animation: pulsate 1.2s linear infinite;
+    animation: pulsate 1.2s linear infinite;
+}
+
+.starter-template {
+    padding: 10px 15px;
+    text-align: center;
+}
+
+.centered {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.vertical-align {
+    display: flex;
+    align-items: center;
+}
+
+.question {
+    width: 80%;
+}
+
+.left-panel {
+    margin-left: 20px;
+    float:left;
+    width:80%;
+    display:inline;
+    margin-bottom: 10px;
+}
+
+.right-panel {
+    float:right;
+    width: 15%;
+    display: inline;
+    margin-bottom: 10px;
+    margin-right: 15px;
+}
+
+
+

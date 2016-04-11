@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Ask me</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../bootstrap/css/style.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Site navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Ask me</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="#">Questions</a></li>
+                <li><a href="#">Tags</a></li>
+            </ul>
+            <div class="col-sm-3 col-md-3">
+                <form class="navbar-form navbar-left" role="search">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search" name="q">
+                        <div class="input-group-btn">
+                            <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="register.html">Sign Up</a></li>
+                <li class="dropdown">
+                    <a href="index.html" class="dropdown-toggle" data-toggle="dropdown">Log in <b class="caret"></b></a>
+                    <ul class="dropdown-menu width_dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
+                        <li>
+                            <form class="form" role="form" method="post" action="index.html" accept-charset="UTF-8" id="login-nav">
+                                <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Email: ">
+                                <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password: ">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox"> Remember me
+                                    </label>
+                                </div>
+                                <button type="submit" class="btn btn-success btn-block">Sign in</button>
+                            </form>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+
+        </div><!--/.nav-collapse -->
+    </div>
+</nav>
+
+<div class="left-panel starter-template question">
+    <div class="panel-body">
+        <iframe width="800" height="600" src="https://www.youtube.com/embed/MsplPPW7tFo"></iframe>
+    </div>
+</div>
+
+
+<div class="right-panel" style="float:right; width:15%; text-align: center;">
+    <div class="panel-body">
+        <h4>Popular tags </h4>
+        <div class="list-group">
+            <a href="#" class="list-group-item"> Perl </a>
+            <a href="#" class="list-group-item list-group-item-success">Python</a>
+            <a href="#" class="list-group-item list-group-item-info">Mail.ru</a>
+            <a href="#" class="list-group-item list-group-item-warning">TechnoPark</a>
+            <a href="#" class="list-group-item list-group-item-danger">Firefox</a>
+        </div>
+        <h4>Best members </h4>
+        <ul class="list-group">
+            <li class="list-group-item"><span class="badge">100</span> Anton Chumakov</li>
+            <li class="list-group-item"><span class="badge">95</span> Artem Ichakov</li>
+            <li class="list-group-item"><span class="badge">90</span> Alex Karkin</li>
+            <li class="list-group-item"><span class="badge">70</span> George Ivanov</li>
+        </ul>
+    </div>
+</div>
+
+
+
+
+
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+
+
+<script src="../bootstrap/js/jquery.min.js"></script>
+<script src="../bootstrap/js/bootstrap.min.js"></script>
+
+<script type="text/javascript">
+    $(function () {
+        var ul = $('.dropdown-toggle ul');
+        $('.dropdown-toggle a, #close').click(function () {
+            ul.slideToggle();
+        });
+        $('html').click(function (event) {
+            if($(event.target).parents(".dropdown-toggle").size()) return;
+            ul.slideUp();
+        });
+    });
+</script>
+
+</body>
+</html>

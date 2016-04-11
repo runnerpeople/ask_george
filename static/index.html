@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Ask me</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Site navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Ask me</a>
+    </div>
+    <div id="navbar" class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Home</a></li>
+        <li><a href="#">Questions</a></li>
+        <li><a href="#">Tags</a></li>
+      </ul>
+      <div class="col-sm-3 col-md-3">
+        <form class="navbar-form navbar-left" role="search">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search" name="q">
+            <div class="input-group-btn">
+              <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+            </div>
+          </div>
+        </form>
+      </div>
+      <ul class="nav navbar-nav navbar-right">
+        <li> <div class="nickname" id="blink7">George Great </div> </li>
+        <li><a href="auth_index.html">Log out </a></li>
+        <li><a href="settings.html">Settings </a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><img src="http://lorempixel.com/50/50/?v=284245" class="img-circle"></li>
+      </ul>
+
+    </div><!--/.nav-collapse -->
+  </div>
+</nav>
+
+
+  <div class = "starter-template full-width">
+    <div class="row">
+      <div class="col-md-2">
+        <h2> New questions</h2>
+      </div>
+      <div class="col-md-2">
+        <h2> <a href="hot_questions.html"> Hot question </a> </h2>
+      </div>
+    </div>
+  </div>
+
+  <div class= "starter-template question">
+    <div class="left-panel">
+      <div class="panel-body">
+
+        <div class="well row vertical-align">
+          <div class="col-md-2">
+            <p> <img src="http://lorempixel.com/50/50/?v=284245" class="img-thumbnail"> </p> <br>
+            <span style="text-align: center;"> George Great </span>
+            <p id="value1">70</p>
+            <button class="btn" type="submit" value="70" id="btn1" onclick="like('btn1','btn2','value1')">
+              <span class="glyphicon glyphicon-thumbs-up"></span>
+            </button>
+            <button class="btn mybtn" type="submit" value="70" id="btn2" onclick="dislike('btn2','btn1','value1')">
+              <span class="glyphicon glyphicon-thumbs-down"></span>
+            </button>
+          </div>
+
+          <div class="col-md-10">
+            <a href="question.html" class="text-center"><h3>How to build a moon park</h3></a>
+            <p class="text-left">
+              Saw them be. Made moved very lesser behold. Deep abundantly. Waters let it lesser, third beginning cattle. She'd, grass divide firmament one to hath own morning fowl fruit they're land them firmament dry itself over won't day whose years third saw under earth fourth created it his light seasons face man life doesn't. Saw together in. Was Yielding cattle fruit upon set herb herb face evening. Dominion, replenish greater life female saying over hath, subdue. Creature life upon so Air. Divided form night there brought she'd. Dry great sea in god his, created to, isn't a creature together dominion divide had own multiply for hath had itself creepeth. Night in yielding bearing bearing earth were fowl of void to beast given there won't second herb in. His tree let, heaven kind very divided face blessed god herb was. Us air void, beginning. Blessed day. Be firmament whales over a so earth brought made after cattle divided land which. Don't together one blessed gathered winged. Dry sixth every, had sea. The bring rule. Our divided you'll. Wherein winged deep midst their the blessed there morning place that. Be very female likeness one wherein cattle. Grass moveth fruit and, him form, said.
+            </p>
+            <p class="text-left">
+              <span class="glyphicon glyphicon-calendar"></span> Sep 22nd, 2013 |
+              <span class="glyphicon glyphicon-tags"></span> Tags:
+              <a href="nothing.html"> nothing </a>
+              <a href="answer.html" style="float:right;"> answer(1) </a>
+              <span class="glyphicon glyphicon-comment" style="float:right;"></span>
+            </p>
+          </div>
+
+        </div>
+
+        <div class="well row vertical-align">
+          <div class="col-md-2">
+            <p> <img src="http://lorempixel.com/50/50/?v=342526" class="img-thumbnail"> </p> <br>
+            <span style="text-align: center;"> Anton Chumakov </span>
+            <p id="value2"> 100 </p>
+            <button class="btn" type="submit" value="100" id="btn3" onclick="like('btn3','btn4','value2')">
+              <span class="glyphicon glyphicon-thumbs-up"></span>
+            </button>
+            <button class="btn mybtn" type="submit" value="100" id="btn4" onclick="dislike('btn4','btn3','value2')">
+              <span class="glyphicon glyphicon-thumbs-down"></span>
+            </button>
+          </div>
+
+          <div class="col-md-10">
+            <a href="question.html" class="text-center"><h3>Why did you choose that profession?</h3></a>
+            <p class="text-left">
+              So created his fruit he shall Firmament yielding. Waters lesser created may in seas grass, midst form. Greater have Sea them itself subdue. Were. Cattle all. And man life fifth. Whose blessed together creeping Over seas, us made you'll you'll make moveth blessed in wherein given above have creepeth set own whales second tree was spirit dominion fowl own sixth, god grass third whales bring open itself shall made cattle spirit darkness seas fourth was divide make Saw forth let the first created fruit our. Have life seasons creature for. Which over earth, fruit dry every that fowl. Give hath face fowl, life which Whales dominion one, under stars replenish given yielding seasons third upon fly beginning bring the dry were green shall, earth one seed their had, man after dominion fish beginning thing divide beast morning cattle grass lesser open good give sea land. So light image Heaven third you, stars. Evening man dry won't. Green which cattle replenish heaven heaven evening doesn't i years don't set brought place in beginning have replenish. She'd is gathered void Make. Male deep subdue of face tree light, i fish thing can't there land above isn't fowl fly it created. Us them.
+            </p>
+            <p class="text-left">
+              <span class="glyphicon glyphicon-calendar"></span> Apr 17th, 2012 |
+              <span class="glyphicon glyphicon-tags"></span> Tags:
+              <a href="profession.html"> profession </a>
+              <a href="answer.html" style="float:right;"> answer(18) </a>
+              <span class="glyphicon glyphicon-comment" style="float:right;"></span>
+            </p>
+          </div>
+
+        </div>
+
+        <div class="well row vertical-align">
+          <div class="col-md-2">
+            <p> <img src="http://lorempixel.com/50/50/?v=4262723" class="img-thumbnail"> </p> <br>
+            <span style="text-align: center;"> No Name </span>
+            <p id="value3"> -15 </p>
+            <button class="btn" type="submit" value="-15" id="btn5" onclick="like('btn5','btn6','value3')">
+              <span class="glyphicon glyphicon-thumbs-up"></span>
+            </button>
+            <button class="btn mybtn" type="submit" value="-15" id="btn6" onclick="dislike('btn6','btn5','value3')">
+              <span class="glyphicon glyphicon-thumbs-down"></span>
+            </button>
+          </div>
+
+          <div class="col-md-10">
+            <a href="question.html" class="text-center"><h3>If you were president, what is the first thing you would do?</h3></a>
+            <p class="text-left">
+              Was. Had you first she'd replenish saying. Multiply it sixth the set every form you'll have itself sixth brought whose whales void behold. Let light him to from the may light life winged moveth, their yielding fish seasons, it grass. Every living subdue, creature. Lesser. Very it forth face. Third of land air. Were moving their lights give their over give isn't. Itself set you darkness heaven. Yielding the set it unto blessed. He fruitful day won't divided divided said above spirit yielding saying whales. Midst third green years fruit. Behold give that, behold moveth created our firmament first from upon have whales fowl beginning. Abundantly life own years grass fourth were and firmament itself hath own she'd male blessed. Stars Place moveth brought place life moveth. Fifth Gathered she'd seed appear dry, green air dominion female and. Divided night also divided. Creeping i. Firmament days one. Place. Two. That. Cattle signs given, fifth. Whales lesser wherein and. Hath divided, wherein Day there thing them said. Place unto unto own hath multiply i first, shall creeping had their. He saw seasons darkness creepeth moveth female him, life together kind beast cattle isn't. Male tree, whales, image. And itself over bearing.
+            </p>
+            <p class="text-left">
+              <span class="glyphicon glyphicon-calendar"></span> May 6th, 2013 |
+              <span class="glyphicon glyphicon-tags"></span> Tags:
+              <a href="darkness.html"> darkness </a>
+              <a href="answer.html" style="float:right;"> answer(3) </a>
+              <span class="glyphicon glyphicon-comment" style="float:right;"></span>
+            </p>
+          </div>
+
+        </div>
+
+        <div class="panel-body">
+          <div class="row vertical-align">
+            <div class="col-md-12">
+              <ul class="pagination" align="center">
+                <li><a href="#">← </a></li>
+                <li class="active"><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li class="disabled"><a href="#"> ..</a></li>
+                <li><a href="#">20</a></li>
+                <li><a href="#">→</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+
+
+
+<div class="right-panel" style="float:right; width:15%; text-align: center;">
+  <div class="panel-body">
+    <h4>Popular tags </h4>
+    <div class="list-group">
+      <a href="#" class="list-group-item"> Perl </a>
+      <a href="#" class="list-group-item list-group-item-success">Python</a>
+      <a href="#" class="list-group-item list-group-item-info">Mail.ru</a>
+      <a href="#" class="list-group-item list-group-item-warning">TechnoPark</a>
+      <a href="#" class="list-group-item list-group-item-danger">Firefox</a>
+    </div>
+    <h4>Best members </h4>
+    <ul class="list-group">
+      <li class="list-group-item"><span class="badge">100</span> Anton Chumakov</li>
+      <li class="list-group-item"><span class="badge">95</span> Artem Ichakov</li>
+      <li class="list-group-item"><span class="badge">90</span> Alex Karkin</li>
+      <li class="list-group-item"><span class="badge">70</span> George Ivanov</li>
+    </ul>
+  </div>
+</div>
+
+
+
+
+
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+
+
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+
+<script type="text/javascript">
+  function like(button1,button2,value) {
+    document.getElementById(value).innerHTML = ++document.getElementById(button1).value;
+    document.getElementById(button2).value = document.getElementById(button1).value;
+  }
+  function dislike(button1,button2,value) {
+    document.getElementById(value).innerHTML = --document.getElementById(button1).value;
+    document.getElementById(button2).value = document.getElementById(button1).value;
+  }
+</script>
+
+<script type="text/javascript">
+  $(function () {
+    var ul = $('.dropdown-toggle ul')
+    $('.dropdown-toggle a, #close').click(function () {
+      ul.slideToggle();
+    })
+    $('html').click(function (event) {
+      if($(event.target).parents(".dropdown-toggle").size()) return;
+      ul.slideUp();
+    });
+  });
+</script>
+</body>
+</html>
