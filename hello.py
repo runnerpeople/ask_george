@@ -12,14 +12,14 @@ def myapp(environ,start_response):
               "<p><input type='submit' value='Send!'></p>",
               "</form>"]
     response_headers = [('Content-type','text/html')]
-    if environ['REQUEST_METHOD']=="GET":
+    if environ['REQUEST_METHOD'] == "GET":
         dict_value = parse_qs(environ['QUERY_STRING'])
         output.append("<h3> <p> Get data: </p> </h3>")
-        if dict_value=={}:
+        if dict_value:
             output.append("No data received")
         for key,value in dict_value.iteritems():
-            if len(value)==1:
-                output.append("%s = %s <br>" % (key,value[0]))
+            if len(value) == 1:
+                output.append("%s = %s <br>" % (key, value[0]))
             else:
                 output.append("%s = %s <br>" % (key, value))
     else:
@@ -34,3 +34,5 @@ def myapp(environ,start_response):
     response_headers.append(('Content-length',str(sum([len(x) for x in output]))))
     start_response('200 OK',response_headers)
     return output
+
+

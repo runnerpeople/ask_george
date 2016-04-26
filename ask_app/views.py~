@@ -4,13 +4,13 @@ from django.views.decorators.csrf import csrf_exempt
 
 @csrf_exempt
 def parse_args(request):
-    response = "<p> WSGI script by George Ivanov </p>" \
+    response = "<p> WSGI script by George Ivanov (Django) </p>" \
                "<form method='POST'>"\
                "<p><input type='text' name='str'></p>" \
                "<p><input type='submit' value='Send!'></p>" \
                "</form>"
     if request.method=='GET':
-        if request.GET=={}:
+        if request.GET:
             response += "No data received"
         else:
             for key,value in request.GET.iteritems():

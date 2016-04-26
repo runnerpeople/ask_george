@@ -20,5 +20,8 @@ from ask_app import views as ask_views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^/?', ask_views.base,name="home"),
+    url(r'^hot/$',ask_views.base,{"sort": "hot"},name="hot_questions"),
+    url(r'^tag/(?P<tag>[a-z,0-9]+)/$',ask_views.base,{"tags_name":"tag"},name="tag"),
     url(r'^parse/', ask_views.parse_args, name='parse'),
 ]
