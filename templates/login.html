@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block userblock %}
+<ul class="nav navbar-nav navbar-right">
+<li><a href="{% url 'login' %}">Sign Up</a></li>
+<li class="dropdown">
+  <a href="{% url 'home' 1 %}" class="dropdown-toggle" data-toggle="dropdown">Log in <b class="caret"></b></a>
+  <ul class="dropdown-menu width_dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
+    <li>
+      <form class="form" role="form" method="post" action="index.html" accept-charset="UTF-8" id="login-nav">
+        <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Email: ">
+        <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password: ">
+        <div class="checkbox">
+          <label>
+            <input type="checkbox"> Remember me
+          </label>
+        </div>
+        <button type="submit" class="btn btn-success btn-block">Sign in</button>
+      </form>
+    </li>
+  </ul>
+</li>
+</ul>
+{% endblock %}
+
+{% block content %}
+<div class= "starter-template question">
+      <div class="left-panel">
+        <div class="panel-body">
+          <h2><p class="text-left" style="margin-bottom: 15px;">Log in</p></h2>
+          <form name="form" id="form" class="form-horizontal" method="POST">
+            <div class="input-group">
+              <label style="float:left; vertical-align: middle;">Login</label>
+              <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+              <input id="user" type="email" class="form-control" name="user" value="" required placeholder="Email" style="width:35%;">
+            </div>
+
+            <div class="input-group" style="margin-top: 10px;">
+              <label style="float:left; vertical-align: middle;">Password</label>
+              <span class="input-group-addon" style=""><i class="glyphicon glyphicon-lock"></i></span>
+              <input id="password" type="password" class="form-control" name="password" required style="width:35%; margin-right:133px;" placeholder="Password">
+            </div>
+
+            <div class="form-group">
+              <div style="float:left; margin-left:15px; margin-top:10px;">
+                <button type="submit"  class="btn btn-primary pull-right"><i class="glyphicon glyphicon-log-in"></i> Log in</button>
+              </div>
+              <br><br><br>
+              <a href="{% url 'login' %}" style="float:left;margin-left:15px;">create new account</a>
+            </div>
+
+          </form>
+
+        </div>
+      </div>
+</div>
+{% endblock %}

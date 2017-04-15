@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+
+{% block userblock %}
+<ul class="nav navbar-nav navbar-right">
+    <li> <div class="nickname" id="blink7">{{ username }} </div> </li>
+    <li><a href="{% url 'login' %} ">Log out </a></li>
+    <li><a href="{% url 'login' %}">Settings </a></li>
+</ul>
+<ul class="nav navbar-nav navbar-right">
+    <li><img src="http://lorempixel.com/50/50/?v=284245" class="img-circle"></li>
+</ul>
+{% endblock %}
+
+{% block content %}
+<div class= "starter-template question">
+    <div class="left-panel">
+        <div class="panel-heading" style="text-align: left;">
+            <h2>How to build a moon park</h2>
+        </div>
+
+        <div class="panel-body">
+
+            <div class="row vertical-align">
+
+                <div class="col-md-2">
+                    <p> <img src="http://lorempixel.com/50/50/?v=284245" class="img-thumbnail"> </p> <br>
+                    <span style="text-align: center;"> {{ question.author }} </span>
+                    <p> {{ question.rating }} </p>
+                    <button class="btn" type="submit" value="{{ question.rating }}">
+                        <span class="glyphicon glyphicon-thumbs-up"></span>
+                    </button>
+                    <button class="btn mybtn" type="submit" value="{{ question.rating }}">
+                        <span class="glyphicon glyphicon-thumbs-down"></span>
+                    </button>
+                </div>
+                <div class="col-md-10">
+                    <h3>{{ question.title }}</h3>
+                    <p class="text-left">
+                        {{ question.text }}
+                    </p>
+                    <p class="text-left">
+                        <span class="glyphicon glyphicon-calendar"></span> {{ question.published }} |
+                        <span class="glyphicon glyphicon-tags"></span> Tags:
+                        {% for taag in question.tags.all %}
+                        <a href="{% url 'tag' 'taag' %}"> {{ taag }} </a>
+                        {% endfor %}
+                    </p>
+                </div>
+
+            </div>
+            <div style="text-align: left;">
+                <br>
+                <h3>{{ answer_list.all|length }} Answers</h3>
+            </div>
+            {% for answer in answer_list.all %}
+            <hr>
+                <div class="row">
+                    <div class="col-md-2">
+                        <p> <img src="http://lorempixel.com/50/50/?v=284245" class="img-thumbnail"> </p> <br>
+                        <span style="text-align: center;"> Unknown </span>
+                        <p> {{ answer.rating }} </p>
+                        <button class="btn" type="submit" value="{{ answer.rating }}">
+                            <span class="glyphicon glyphicon-thumbs-up"></span>
+                        </button>
+                        <button class="btn mybtn" type="submit" value="{{ answer.rating }}">
+                            <span class="glyphicon glyphicon-thumbs-down"></span>
+                        </button>
+                    </div>
+
+                    <div class="col-md-10">
+                        <p class="text-left">
+                            {{ answer.text }}
+                        </p>
+                        <br>
+                        <p class="text-left">
+                            <span class="glyphicon glyphicon-calendar"></span> {{ question.published }} |
+                        </p>
+                        <div class="checkbox" style="float:left;">
+                            <label><input type="checkbox" value="">Correct!</label>
+                        </div>
+                    </div>
+
+
+                </div>
+            {% endfor %}
+
+            <br>
+            <div class="form-group">
+                <label for="comment" style="float:left;margin-right:4px;">Comment:</label>
+                <textarea class="form-control" rows="8" id="comment" style="margin-left:3px; resize:none;"></textarea>
+                </div>
+                <button class="btn btn-info" style="float:left;"type="submit">
+                    Answer
+                </button>
+
+        </div>
+    </div>
+</div>
+{% endblock %}

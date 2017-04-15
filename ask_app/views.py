@@ -1,6 +1,13 @@
 from django.shortcuts import render, render_to_response
 from django.http import HttpRequest,HttpResponse
 from django.views.decorators.csrf import csrf_exempt
+from paginator import Paginator
+from .models import *
+from .forms import *
+from django.contrib.auth import authenticate, login, logout
+
+def error_page(request):
+    return render(request,"404.html")
 
 @csrf_exempt
 def parse_args(request):
@@ -23,57 +30,65 @@ def parse_args(request):
         response += "Value = %s <br>" % (request.POST['str'])
     return HttpResponse(response,content_type="text/html",status=200)
 
-def base(request,sort="no",tag_name="no"):
-    import random
-    questions = []
-    urls = {}
-    urls["hot"]="/hot/"
-    urls["log_out"]="/log_out/"
-    urls["settings"]="/settings/"
-    users=["Anton Chumakov","Alexey Belogurow", "Alex Karkin", "Nikita Romanov","Daria Tereshkina","Artem Ichakov","Danil Kirichik"]
-    ratings=[100,98,80,100,90,90,90]
-    months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"]
-    for i in range(8):
-        if i==0:
-            questions.append({
-                "user_url":284245,
-                "user" : "George Great",
-                "rating": 70,
-                "id": i,
-                "title": "Solar System",
-                "text": "Abundantly life own years grass fourth were and firmament itself hath own she'd male blessed. Stars Place moveth brought place life moveth. Fifth Gathered she'd seed appear dry, green air dominion female and. Divided night also divided. Creeping i. Firmament days one. Place. Two. That. Cattle signs given, fifth. Whales lesser wherein and. Hath divided, wherein Day there thing them said. Place unto unto own hath multiply i first, shall creeping had their. He saw seasons darkness creepeth moveth female him, life together kind beast cattle isn't.",
-                "published": "15th Sep, 2015",
-                "tags": ["nothing","diffucult", "bla-bla"],
-                "answers": random.randint(0,100),
-            })
-        else:
-            questions.append({
-                "user_url": random.randint(100000,1000000),
-                "user": users[i-1],
-                "rating": ratings[i-1],
-                "id": i,
-                "title": "IU9",
-                "text": "Was. Had you first she'd replenish saying. Multiply it sixth the set every form you'll have itself sixth brought whose whales void behold. Let light him to from the may light life winged moveth, their yielding fish seasons, it grass. Every living subdue, creature. Lesser. Very it forth face. Third of land air. Were moving their lights give their over give isn't. Itself set you darkness heaven. Yielding the set it unto blessed. He fruitful day won't divided divided said above spirit yielding saying whales. Midst third green years fruit. Behold give that, behold moveth created our firmament first from upon have whales fowl beginning. Abundantly life own years grass fourth were and firmament itself hath own she'd male blessed. Stars Place moveth brought place life moveth. Fifth Gathered she'd seed appear dry, green air dominion female and. Divided night also divided. Creeping i. Firmament days one. Place. Two. That. Cattle signs given, fifth. Whales lesser wherein and. Hath divided, wherein Day there thing them said. Place unto unto own hath multiply i first, shall creeping had their. He saw seasons darkness creepeth moveth female him, life together kind beast cattle isn't. Male tree, whales, image. And itself over bearing.",
-                "published": str(random.randint(1,30)) + "th " + months[random.randint(0,11)] + ", " + str(random.randint(2012,2015)),
-                "tags": ["iu9", "bla-bla"],
-                "answers": random.randint(0, 100),
-            })
-        if tag_name != "no":
-            questions[i]["tags"]=tag_name
-    if sort == 'no':
-        return render_to_response(request,"index.html",
-                  {"question_list":questions,
-                   "username" : "George Great",
-                   "url":urls,
-                   "hot_question": True})
+def base(request,page,sort="no",tag="no"):
+    questions = ""
+    if sort != "no":
+        questions = Question.objects.best()
     else:
-        return render_to_response(request, "index.html",
-                      {"question_list": questions,
+        questions = Question.objects.all()
+    if tag != "no":
+        try:
+            hash_tag = Tag.objects.find(tag)
+        except Tag.DoesNotExist:
+            return error_page(request)
+
+        questions = Question.objects.tag(tag)
+    questions_shown = paginate(questions,request)
+    if tag != "no":
+        return render(request, "index.html",
+                                  {"question_list": questions_shown,
+                                   "username": "George Great",
+                                   "tag_block": True})
+    if sort == 'no':
+        return render(request,"index.html",
+                  {"question_list":questions_shown,
+                   "username" : "George Great",
+                   "hot_question": True,
+                   "tag_block": False})
+    else:
+        return render(request, "index.html",
+                      {"question_list": questions_shown,
                        "username": "George Great",
-                       "url": urls,
-                       "hot_question": False})
+                       "tag_block": False})
 
 
-def tag(request):
-    pass
+def question(request,question_id=0):
+    question_ = ""
+    try:
+        question_ = Question.objects.get(pk=question_id)
+        answers = Answer.objects.get_question(question_)
+    except Question.DoesNotExist:
+        return error_page(request)
+    return render(request, "question.html",
+                  {"question": question_,
+                   "answer_list": answers,
+                   "username": "George Great"})
+
+def ask(request):
+    return render(request,"ask.html",
+                  {"username": "George Great"})
+
+def login(request):
+    return render(request, "login.html")
+
+def sign_up(request):
+    return render(request, "sign_up.html")
+
+
+
+def paginate(objects_list,request):
+    paginator = Paginator(objects_list,5)
+    page = request.GET.get('page')
+    contacts = paginator.page(page)
+    return contacts
 

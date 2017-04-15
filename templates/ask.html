@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block userblock %}
+<ul class="nav navbar-nav navbar-right">
+    <li> <div class="nickname" id="blink7">{{ username }} </div> </li>
+    <li><a href="{% url 'login' %} ">Log out </a></li>
+    <li><a href="{% url 'login' %}">Settings </a></li>
+</ul>
+<ul class="nav navbar-nav navbar-right">
+    <li><img src="http://lorempixel.com/50/50/?v=284245" class="img-circle"></li>
+</ul>
+{% endblock %}
+
+{% block content %}
+<div class= "starter-template question">
+    <div class="left-panel">
+        <div class="panel-body">
+            <h2><p class="text-left" style="margin-bottom: 15px;">New Question</p></h2>
+            <div class="form-group">
+                <label class="col-sm-1 control-label" style="vertical-align: middle;" for="title">Title:</label>
+                <input type="text" required class="form-control" style="width:80%" id="title">
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-1 control-label" style="vertical-align: middle;" for="text">Text:</label>
+                <textarea class="form-control noresize" style="width:80%; resize:vertical;" rows="10" id="text"> </textarea>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-1 control-label" style="vertical-align: middle;" for="tags">Tags:</label>
+                <input type="text" class="form-control" required style="width:80%" id="tags">
+            </div>
+            <button type="button" class="btn btn-success">Ask!</button>
+        </div>
+
+    </div>
+</div>
+{% endblock %}

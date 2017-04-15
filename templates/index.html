@@ -3,8 +3,8 @@
 {% block userblock %}
 <ul class="nav navbar-nav navbar-right">
     <li> <div class="nickname" id="blink7">{{ username }} </div> </li>
-    <li><a href="{{ url.log_out }} ">Log out </a></li>
-    <li><a href="{{ url.settings }}">Settings </a></li>
+    <li><a href="{% url 'login' %} ">Log out </a></li>
+    <li><a href="{% url 'login' %}">Settings </a></li>
 </ul>
 <ul class="nav navbar-nav navbar-right">
     <li><img src="http://lorempixel.com/50/50/?v=284245" class="img-circle"></li>
@@ -18,13 +18,13 @@
       <div class="col-md-2"><h2> New questions</h2>
       </div>
       <div class="col-md-2">
-        <h2> <a href="{{ url.hot }}"> Hot question </a> </h2>
+        <h2> <a href="{% url 'hot_questions' %}"> Hot question </a> </h2>
       </div>
     </div>
 </div>
 {% endif %}
 
-{% if tag_block %}
+{% if tag_block  %}
 <div class = "starter-template full-width">
     <div class="row">
       <div class="col-md-2">
@@ -38,11 +38,11 @@
 <div class= "starter-template question">
     <div class="left-panel">
       <div class="panel-body">
-{% for question in question_list %}
+{% for question in question_list.object_list %}
 <div class="well row vertical-align">
     <div class="col-md-2">
-        <p> <img src="http://lorempixel.com/50/50/?v={{ question.user_url }}" class="img-thumbnail"> </p> <br>
-        <span style="text-align: center;"> {{ question.user }} </span>
+        <p> <img src="http://lorempixel.com/50/50/?v=284245" class="img-thumbnail"> </p> <br>
+        <span style="text-align: center;"> {{ question.author }} </span>
         <p id="value1"> {{ question.rating }} </p>
         <button class="btn" type="submit" value="{{ question.rating }}">
             <span class="glyphicon glyphicon-thumbs-up"></span>
@@ -53,17 +53,17 @@
     </div>
 
       <div class="col-md-10">
-        <a href="/question/{{ question.id }}/" class="text-center"><h3>{{ question.title }}</h3></a>
+        <a href="{% url 'question' question.id %}" class="text-center"><h3>{{ question.title }}</h3></a>
         <p class="text-left">
             {{ question.text }}
         </p>
         <p class="text-left">
           <span class="glyphicon glyphicon-calendar"></span> {{ question.published }} |
           <span class="glyphicon glyphicon-tags"></span> Tags:
-            {% for tag in question.tags %}
-            <a href="/tag/{{ tag }}/"> {{ tag }} </a>
+            {% for taag in question.tags.all %}
+            <a href="{% url 'tag' 'taag' %}"> {{ taag }} </a>
             {% endfor %}
-          <a href="/question/{{ question.id }}/" style="float:right; margin-left: 3px;"> answer({{ question.answers }}) </a>
+          <a href="{% url 'question' question.id %}" style="float:right; margin-left: 3px;"> answer </a>
           <span class="glyphicon glyphicon-comment" style="float:right;"></span>
         </p>
       </div>
@@ -71,7 +71,7 @@
 </div>
 
 {% endfor %}
-{% include "paginate.html" %}
+{% include "paginate.html" with paginated=question_list %}
         </div>
     </div>
 </div>

@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block userblock %}
+<ul class="nav navbar-nav navbar-right">
+<li><a href="{% url 'login' %}">Sign Up</a></li>
+<li class="dropdown">
+  <a href="{% url 'home' 0 %}" class="dropdown-toggle" data-toggle="dropdown">Log in <b class="caret"></b></a>
+  <ul class="dropdown-menu width_dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
+    <li>
+      <form class="form" role="form" method="post" action="index.html" accept-charset="UTF-8" id="login-nav">
+        <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Email: ">
+        <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password: ">
+        <div class="checkbox">
+          <label>
+            <input type="checkbox"> Remember me
+          </label>
+        </div>
+        <button type="submit" class="btn btn-success btn-block">Sign in</button>
+      </form>
+    </li>
+  </ul>
+</li>
+</ul>
+{% endblock %}
+
+{% block content %}
+<div class="left-panel starter-template question">
+        <div class="panel-body">
+            <h2><p class="text-left" style="margin-bottom: 15px;">Registration</p></h2>
+            <form name="form" id="form" class="form-horizontal" method="POST">
+                <div class="form-group">
+                    <label class="col-sm-1 control-label" style="vertical-align: middle;" for="login">Login:</label>
+                    <input type="text" class="form-control" required style="width:40%" id="login">
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-1 control-label" style="vertical-align: middle;" for="email">Email:</label>
+                    <input type="email" class="form-control" required style="width:40%" id="email">
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-1 control-label"  style="vertical-align: middle;" for="nickname">Nickname:</label>
+                    <input type="text" class="form-control" required style="width:40%" id="nickname">
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-1 control-label"  style="vertical-align: middle;" for="password">Password:</label>
+                    <input type="password" class="form-control" required style="width:40%" id="password">
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-1 control-label"  style="vertical-align: middle;" for="repeat_password">Repeat password:</label>
+                    <input type="password" class="form-control" required style="width:40%" id="repeat_password">
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-1 control-label"  style="vertical-align: middle;">Upload avatar:</label>
+                    <input type="file" class="file" style="width:40%">
+                </div>
+                <button type="submit" class="btn btn-success" style="float:left; margin-top:10px;" onclick="check(document.getElementById('password').value,document.getElementById('repeat_password').value)">Register!</button>
+            </form>
+
+        </div>
+</div>
+{% endblock %}

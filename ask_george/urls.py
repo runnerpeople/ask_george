@@ -20,8 +20,13 @@ from ask_app import views as ask_views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^/?', ask_views.base,name="home"),
-    url(r'^hot/$',ask_views.base,{"sort": "hot"},name="hot_questions"),
-    url(r'^tag/(?P<tag>[a-z,0-9]+)/$',ask_views.base,{"tags_name":"tag"},name="tag"),
+    url(r'^hot/(?P<page>\d+)?$',ask_views.base,{"sort": "hot"}, name="hot_questions"),
+    url(r'^tag/(?P<tag>[a-zA-Z0-9]+)/(?P<page>\d+)?$',ask_views.base, name="tag"),
+    url(r'^question/(?P<question_id>\d+)/?$',ask_views.question, name="question"),
+    url(r'^ask/?',ask_views.ask, name="ask"),
+    url(r'^login/?',ask_views.login, name="login"),
+    url(r'^signup/?',ask_views.sign_up, name='signup'),
+
     url(r'^parse/', ask_views.parse_args, name='parse'),
+    url(r'^(/)?(?P<page>\d+)?$', ask_views.base, name="home"),
 ]

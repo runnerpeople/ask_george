@@ -2,13 +2,19 @@
     <div class="row vertical-align">
         <div class="col-md-12">
             <ul class="pagination" align="center">
-                <li><a href="#">← </a></li>
-                <li class="active"><a href="#">1</a></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li class="disabled"><a href="#"> ..</a></li>
-                <li><a href="#">20</a></li>
-                <li><a href="#">→</a></li>
+                {% if paginated.has_previous %}
+                <li>
+                    <a href="?page={{ paginated.previous_page_number }}"> &laquo; </a>
+                </li>
+                {% endif %}
+                <li><a><span class="current">
+                    {{ paginated }}
+                </span></a></li>
+                {% if paginated.has_next %}
+                <li>
+                    <a href="?page={{ paginated.next_page_number }}"> &raquo; </a>
+                </li>
+                {% endif %}
             </ul>
         </div>
     </div>
